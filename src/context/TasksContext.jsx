@@ -12,7 +12,7 @@ const tasksReducer = (state, action) => {
       list = [...state, action.payload];
       break;
     case "deleteTask":
-      list = [];
+      list = state.filter((item) => item.id !== action.payload);
       break;
     case "clearTasks":
       list = [];
@@ -34,12 +34,16 @@ const TasksProvider = ({ children }) => {
     dispatch({ type: "addTask", payload: task });
   };
 
+  const deleteTask = (task_id) => {
+    dispatch({ type: "deleteTask", payload: task_id });
+  };
+
   const clearTasks = () => {
     dispatch({ type: "clearTasks" });
   };
 
   return (
-    <TasksContext.Provider value={{ tasks, addTask, clearTasks }}>
+    <TasksContext.Provider value={{ tasks, addTask, deleteTask, clearTasks }}>
       {children}
     </TasksContext.Provider>
   );

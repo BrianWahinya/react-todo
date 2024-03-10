@@ -7,7 +7,8 @@ Current functionalities are add todo and clear list.
 
 Still under development:
 
-- [ ] Update
-- [ ] Delete
-- [ ] Sub-list in each todo
+- [ ] Update individual task
+- [x] Delete individual task
+- [ ] List (un/ordered) in each task (Optional)
+- [ ] Background color for each task
 - [ ] Styling
