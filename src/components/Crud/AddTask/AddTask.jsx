@@ -2,24 +2,39 @@ import { useState } from "react";
 import { genRandomId } from "../../../helpers/utils";
 import { useTasksContext } from "../../../context/TasksContext";
 
+const defaultTask = {
+  title: "",
+  desc: "",
+  bgcolor: "#000000",
+  txtcolor: "#000000",
+};
+
 const AddTask = () => {
-  const { addTask } = useTasksContext();
   const [data, setData] = useState({
     title: "",
     desc: "",
     bgcolor: "#000000",
     txtcolor: "#000000",
   });
+
+  const { addTask } = useTasksContext();
+
+  const reset = () => {
+    setData(defaultTask);
+  };
+
   const submit = (e) => {
     e.preventDefault();
     if (data.title) {
       addTask({ id: genRandomId(), ...data });
+      reset();
     }
   };
 
   const changeValue = (id, event) => {
     setData((d) => ({ ...d, [id]: event.target.value }));
   };
+
   return (
     <div>
       <form>
@@ -28,6 +43,7 @@ const AddTask = () => {
           id="task-title"
           type="text"
           className="input-task"
+          value={data.title}
           onChange={(e) => changeValue("title", e)}
         />
         <label htmlFor="task-desc">Enter Description:</label>
@@ -35,6 +51,7 @@ const AddTask = () => {
           id="task-desc"
           type="textarea"
           className="input-task"
+          value={data.desc}
           onChange={(e) => changeValue("desc", e)}
         />
         <label htmlFor="task-bgcolor">Choose Background Color:</label>
@@ -54,7 +71,7 @@ const AddTask = () => {
           onChange={(e) => changeValue("txtcolor", e)}
         />
         <input onClick={submit} type="submit" />
-        <input type="reset" />
+        <input onClick={reset} type="reset" />
       </form>
     </div>
   );
