@@ -20,3 +20,33 @@ export const genRandomId = () => {
   const randomStr = genRandomStr(3);
   return `${timestamp}_${randomStr}_${randomInt}`;
 };
+
+export const shallowObjEqual = (obj1, obj2) => {
+  // If both are identical, they are equal
+  if (obj1 === obj2) return true;
+
+  // If one of them is null or undefined, they are not equal
+  if (
+    typeof obj1 !== "object" ||
+    typeof obj2 !== "object" ||
+    obj1 === null ||
+    obj2 === null
+  )
+    return false;
+
+  // Get the keys of the objects
+  const keys1 = Object.keys(obj1);
+  const keys2 = Object.keys(obj2);
+
+  // If the number of keys is different, they are not equal
+  if (keys1.length !== keys2.length) return false;
+
+  // Check each key
+  for (let key of keys1) {
+    // If the key is not present in obj2 or values are not strictly equal, they are not equal
+    if (!obj2.hasOwnProperty(key) || obj1[key] !== obj2[key]) return false;
+  }
+
+  // If all checks pass, the objects are equal
+  return true;
+};

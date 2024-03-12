@@ -1,4 +1,4 @@
-import { DeleteTask } from "../Crud";
+import { DeleteTask, EditTask } from "../Crud";
 
 const Task = ({ id, title, desc, date }) => {
   return (
@@ -8,6 +8,7 @@ const Task = ({ id, title, desc, date }) => {
       <p>{desc}</p>
       <p>{date}</p>
       <DeleteTask id={id} />
+      <EditTask id={id} />
     </div>
   );
 };

@@ -9,7 +9,12 @@ const tasksReducer = (state, action) => {
       list = [...state, action.payload];
       break;
     case "editTask":
-      list = [...state, action.payload];
+      const target = action.payload;
+      const target_idx = state.findIndex((item) => item.id === target.id);
+      if (target_idx >= 0) {
+        state[target_idx] = target;
+      }
+      list = [...state];
       break;
     case "deleteTask":
       list = state.filter((item) => item.id !== action.payload);
@@ -18,7 +23,7 @@ const tasksReducer = (state, action) => {
       list = [];
       break;
     default:
-      list = state;
+      list = [...state];
   }
   localStorage.setItem("tasks", JSON.stringify(list));
   return list;
@@ -34,6 +39,10 @@ const TasksProvider = ({ children }) => {
     dispatch({ type: "addTask", payload: task });
   };
 
+  const editTask = (task) => {
+    dispatch({ type: "editTask", payload: task });
+  };
+
   const deleteTask = (task_id) => {
     dispatch({ type: "deleteTask", payload: task_id });
   };
@@ -43,7 +52,9 @@ const TasksProvider = ({ children }) => {
   };
 
   return (
-    <TasksContext.Provider value={{ tasks, addTask, deleteTask, clearTasks }}>
+    <TasksContext.Provider
+      value={{ tasks, addTask, editTask, deleteTask, clearTasks }}
+    >
       {children}
     </TasksContext.Provider>
   );
