@@ -1,6 +1,5 @@
 import { useTasksContext } from "../../context/TasksContext";
-import Form from "../../components/Form/Form";
-import Modal from "../../components/Modal/Modal";
+import { Form, Modal, FaIcon } from "../../components/";
 
 const EditTask = ({ id }) => {
   const { tasks, editTask } = useTasksContext();
@@ -11,7 +10,7 @@ const EditTask = ({ id }) => {
 
   return (
     <Modal
-      button={{ btnName: "Edit", color: "warning" }}
+      button={{ btnName: <FaIcon type="edit" />, color: "warning" }}
       body={{
         title: "Edit Task",
         form: (

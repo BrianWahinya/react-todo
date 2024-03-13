@@ -20,10 +20,10 @@ const Modal = ({ button, body, footer }) => {
       <ReactModal isOpen={modal} toggle={toggle}>
         <ModalHeader toggle={toggle}>{title}</ModalHeader>
         <ModalBody>{form}</ModalBody>
-        <ModalFooter>
+        {/* <ModalFooter>
           <Button color="primary" onClick={toggle} name="doSomething" />
           <Button color="secondary" onClick={toggle} name="cancel" />
-        </ModalFooter>
+        </ModalFooter> */}
       </ReactModal>
     </div>
   );

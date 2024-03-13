@@ -1,6 +1,6 @@
 import { genRandomId } from "../../helpers/utils";
 import { useTasksContext } from "../../context/TasksContext";
-import { Modal, Form } from "../../components";
+import { Modal, Form, FaIcon } from "../../components";
 
 const defaultTask = {
   title: "",
@@ -19,7 +19,7 @@ const AddTask = () => {
 
   return (
     <Modal
-      button={{ btnName: "Add", color: "primary" }}
+      button={{ btnName: <FaIcon type="add" />, color: "primary" }}
       body={{
         title: "Add Task",
         form: <Form action={action} initialState={defaultTask} />,
