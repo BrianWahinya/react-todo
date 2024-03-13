@@ -1,4 +1,4 @@
-import { DeleteTask, EditTask } from "../Crud";
+import { DeleteTask, EditTask } from "../../features";
 
 const Task = ({ id, title, desc, date }) => {
   return (

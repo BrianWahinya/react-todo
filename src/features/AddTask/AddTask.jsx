@@ -1,7 +1,6 @@
-import { genRandomId } from "../../../helpers/utils";
-import { useTasksContext } from "../../../context/TasksContext";
-import Form from "../../Form/Form";
-import Modal from "../../Modal/Modal";
+import { genRandomId } from "../../helpers/utils";
+import { useTasksContext } from "../../context/TasksContext";
+import { Modal, Form } from "../../components";
 
 const defaultTask = {
   title: "",
