@@ -1,4 +1,4 @@
-import { AddTask, ClearTasks, Tasks } from "./components";
+import { AddTask, ClearTasks, Modal, Tasks } from "./components";
 import { TasksProvider } from "./context/TasksContext.jsx";
 
 import "./App.css";

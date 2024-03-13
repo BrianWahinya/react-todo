@@ -63,7 +63,7 @@ const TasksProvider = ({ children }) => {
 const useTasksContext = () => {
   const context = useContext(TasksContext);
   if (!context) {
-    throw new Error("useTaskContext must be used within a TasksProvider");
+    throw new Error("useTasksContext must be used within a TasksProvider");
   }
   return context;
 };

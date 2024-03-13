@@ -1,5 +1,6 @@
 import { useTasksContext } from "../../../context/TasksContext";
 import Form from "../../Form/Form";
+import Modal from "../../Modal/Modal";
 
 const EditTask = ({ id }) => {
   const { tasks, editTask } = useTasksContext();
@@ -9,12 +10,18 @@ const EditTask = ({ id }) => {
   };
 
   return (
-    <div>
-      <Form
-        action={action}
-        initialState={tasks.find((item) => item.id === id)}
-      />
-    </div>
+    <Modal
+      button={{ btnName: "Edit", color: "warning" }}
+      body={{
+        title: "Edit Task",
+        form: (
+          <Form
+            action={action}
+            initialState={tasks.find((item) => item.id === id)}
+          />
+        ),
+      }}
+    />
   );
 };
 
