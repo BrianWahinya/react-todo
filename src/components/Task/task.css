@@ -1,0 +1,7 @@
+.task-controls {
+  display: flex;
+  justify-content: flex-end;
+}
+.task-controls button {
+  margin: 5px;
+}

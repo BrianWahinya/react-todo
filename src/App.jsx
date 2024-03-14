@@ -1,17 +1,35 @@
 import { TasksProvider } from "./context/TasksContext.jsx";
-import { Tasks } from "./components";
+import { Navbar, Tasks } from "./components";
 import { AddTask, ClearTasks } from "./features";
+import { Col, Container, Row } from "reactstrap";
+import icon_todo from "./assets/icon_todo.svg";
 import "./App.css";
 
 function App() {
   return (
-    <TasksProvider>
-      <>
-        <ClearTasks />
-        <AddTask />
-        <Tasks />
-      </>
-    </TasksProvider>
+    <>
+      <Navbar />
+      <Container className="main">
+        <Row>
+          <Col
+            className="bg-light border main-col"
+            md={{
+              offset: 2,
+              size: 9,
+            }}
+            sm="12"
+          >
+            <TasksProvider>
+              <div className="main-top">
+                <AddTask />
+                <ClearTasks />
+              </div>
+              <Tasks />
+            </TasksProvider>
+          </Col>
+        </Row>
+      </Container>
+    </>
   );
 }
 

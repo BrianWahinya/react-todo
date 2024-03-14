@@ -11,12 +11,12 @@ const Modal = ({ button, body, footer }) => {
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
 
-  const { btnName, color } = button;
+  const { btnName, color, size } = button;
   const { title, form } = body;
 
   return (
     <div>
-      <Button color={color} onClick={toggle} name={btnName} />
+      <Button color={color} onClick={toggle} name={btnName} size={size} />
       <ReactModal isOpen={modal} toggle={toggle}>
         <ModalHeader toggle={toggle}>{title}</ModalHeader>
         <ModalBody>{form}</ModalBody>

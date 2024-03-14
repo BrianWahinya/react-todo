@@ -1,0 +1,12 @@
+.copyright {
+  font-size: small !important;
+  color: #888 !important;
+}
+.copyright a {
+  color: #b4b4b4 !important;
+  transition: all 500ms;
+}
+.copyright a:hover {
+  color: #5471d8 !important;
+  transition: all 500ms;
+}
