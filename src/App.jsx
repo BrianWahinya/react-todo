@@ -2,7 +2,6 @@ import { TasksProvider } from "./context/TasksContext.jsx";
 import { Navbar, Tasks } from "./components";
 import { AddTask, ClearTasks } from "./features";
 import { Col, Container, Row } from "reactstrap";
-import icon_todo from "./assets/icon_todo.svg";
 import "./App.css";
 
 function App() {

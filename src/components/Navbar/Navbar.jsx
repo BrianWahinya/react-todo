@@ -9,6 +9,7 @@ import {
 } from "reactstrap";
 import "./navbar.css";
 import icon_todo_light from "../../assets/icon_todo_light.svg";
+import icon_todo from "/icon_todo.svg";
 
 const Navbar = (args) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,6 +37,14 @@ const Navbar = (args) => {
           }}
         />
         Todo
+        <img
+          alt="logo"
+          src={icon_todo}
+          style={{
+            height: 0,
+            width: 0,
+          }}
+        />
       </NavbarBrand>
       <NavbarToggler onClick={toggle} />
       <Collapse isOpen={isOpen} navbar>
