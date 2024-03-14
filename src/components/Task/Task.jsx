@@ -18,14 +18,7 @@ const genDateTime = (id) => {
 
 const Task = ({ id, title, desc, date }) => {
   return (
-    <Card
-      className="my-2 task"
-      color="primary"
-      inverse
-      style={{
-        width: "18rem",
-      }}
-    >
+    <Card className="my-2 task" color="primary" inverse>
       <CardHeader>{genDateTime(id)}</CardHeader>
       <CardBody>
         <CardTitle tag="h5">{title}</CardTitle>

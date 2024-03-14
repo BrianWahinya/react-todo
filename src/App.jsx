@@ -23,6 +23,7 @@ function App() {
                 <AddTask />
                 <ClearTasks />
               </div>
+              <hr />
               <Tasks />
             </TasksProvider>
           </Col>

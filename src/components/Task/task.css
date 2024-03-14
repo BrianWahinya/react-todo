@@ -1,7 +1,12 @@
-.task-controls {
+.task {
+  width: "18rem" !important;
+  min-width: 250px !important;
+  margin: 8px;
+}
+.task .task-controls {
   display: flex;
   justify-content: flex-end;
 }
-.task-controls button {
+.task .task-controls button {
   margin: 5px;
 }
