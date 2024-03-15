@@ -1,6 +1,7 @@
 import { Card, CardBody, CardHeader, CardText, CardTitle } from "reactstrap";
 import { DeleteTask, EditTask } from "../../features";
 import "./task.css";
+import { insertBgOpacity } from "../../helpers/utils";
 
 const genDateTime = (id) => {
   const splitId = id.split("_");
@@ -16,9 +17,15 @@ const genDateTime = (id) => {
   return `${year}-${month}-${day} ${hours}:${minutes}`;
 };
 
-const Task = ({ id, title, desc, date }) => {
+const Task = ({ id, title, desc, txtcolor, bgcolor, date }) => {
   return (
-    <Card className="my-2 task" color="primary" inverse>
+    <Card
+      className="my-2 task"
+      style={{
+        backgroundColor: insertBgOpacity(bgcolor) || "#0d6efd80",
+        color: txtcolor,
+      }}
+    >
       <CardHeader>{genDateTime(id)}</CardHeader>
       <CardBody>
         <CardTitle tag="h5">{title}</CardTitle>

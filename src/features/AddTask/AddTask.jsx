@@ -6,7 +6,7 @@ const defaultTask = {
   title: "",
   desc: "",
   bgcolor: "#000000",
-  txtcolor: "#000000",
+  txtcolor: "#FCFCFC",
 };
 
 const AddTask = () => {

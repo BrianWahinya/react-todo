@@ -1,0 +1,7 @@
+.todo-form .form-controls {
+  display: flex;
+  justify-content: end;
+}
+.todo-form .form-controls button {
+  margin: 5px;
+}

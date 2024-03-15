@@ -21,6 +21,27 @@ export const genRandomId = () => {
   return `${timestamp}_${randomStr}_${randomInt}`;
 };
 
+const opacityHslRgb = (item) => {
+  const sub_item = item.split(", ").slice(0, -1);
+  return `${sub_item.join(", ")}, 0.5)`
+    .replace("rgba", "rgb")
+    .replace("hsla", "hsl")
+    .replace("rgb", "rgba")
+    .replace("hsl", "hsla");
+};
+
+export const insertBgOpacity = (color) => {
+  const id = color[0].toLowerCase();
+  switch (id) {
+    case "#":
+      return `${color.slice(0, 7)}80`;
+    case "r" || "h":
+      return opacityHslRgb(color);
+    default:
+      return color;
+  }
+};
+
 export const shallowObjEqual = (obj1, obj2) => {
   // If both are identical, they are equal
   if (obj1 === obj2) return true;
