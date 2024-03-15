@@ -1,4 +1,11 @@
-import { Card, CardBody, CardHeader, CardText, CardTitle } from "reactstrap";
+import {
+  Card,
+  CardBody,
+  CardFooter,
+  CardHeader,
+  CardText,
+  CardTitle,
+} from "reactstrap";
 import { DeleteTask, EditTask } from "../../features";
 import "./task.css";
 import { insertBgOpacity } from "../../helpers/utils";
@@ -30,11 +37,13 @@ const Task = ({ id, title, desc, txtcolor, bgcolor, date }) => {
       <CardBody>
         <CardTitle tag="h5">{title}</CardTitle>
         <CardText>{desc}</CardText>
+      </CardBody>
+      <CardFooter>
         <div className="task-controls">
           <DeleteTask id={id} size="sm" />
           <EditTask id={id} size="sm" />
         </div>
-      </CardBody>
+      </CardFooter>
     </Card>
   );
 };

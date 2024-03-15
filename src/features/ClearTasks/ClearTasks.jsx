@@ -6,7 +6,8 @@ const ClearTasks = () => {
 
   return (
     <Button
-      name={<FaIcon type="clear" />}
+      btnIcon={<FaIcon type="clear" />}
+      btnName="Clear All"
       color="danger"
       onClick={clearTasks}
       disabled={!tasks.length > 0}

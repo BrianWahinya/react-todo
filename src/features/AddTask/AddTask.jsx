@@ -19,7 +19,11 @@ const AddTask = () => {
 
   return (
     <Modal
-      button={{ btnName: <FaIcon type="add" />, color: "primary" }}
+      button={{
+        btnIcon: <FaIcon type="add" className="icon-add" />,
+        btnName: "Add",
+        color: "primary",
+      }}
       body={{
         title: "Add Task",
         form: <Form action={action} initialState={defaultTask} />,

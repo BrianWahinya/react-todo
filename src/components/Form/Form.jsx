@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { shallowObjEqual } from "../../helpers/utils";
 import {
   Form as ReactForm,
@@ -21,15 +21,18 @@ const Form = ({ action, initialState }) => {
     }
   );
   const [error, setError] = useState(false);
+  const isFirstRender = useRef(true);
 
   const reset = () => {
+    if (data.title.length < 1) {
+      setError(false);
+    }
     setData(initialState);
   };
 
   const submit = (e) => {
     e.preventDefault();
-
-    if (!data.title.length) {
+    if (data.title.length < 1) {
       setError(true);
     }
     if (data.title.length && !shallowObjEqual(initialState, data)) {
@@ -40,7 +43,11 @@ const Form = ({ action, initialState }) => {
 
   const changeValue = (id, event) => {
     setError(false);
-    setData((d) => ({ ...d, [id]: event.target.value }));
+    const value = event.target.value;
+    if (id === "title" && value.length < 1) {
+      setError(true);
+    }
+    setData((d) => ({ ...d, [id]: value }));
   };
 
   return (
@@ -57,7 +64,9 @@ const Form = ({ action, initialState }) => {
             valid={!error && data.title.length > 0}
             invalid={error}
           />
-          {error && <FormFeedback invalid>Title is required</FormFeedback>}
+          {error && (
+            <FormFeedback invalid={error}>Title is required</FormFeedback>
+          )}
         </FormGroup>
         <FormGroup>
           <Label for="task-desc">Enter Description:</Label>
@@ -93,13 +102,13 @@ const Form = ({ action, initialState }) => {
           <Button
             onClick={submit}
             type="submit"
-            name="Submit"
+            btnName="Submit"
             style={{ backgroundColor: "#0077aae8" }}
           />
           <Button
             onClick={reset}
             type="reset"
-            name="Reset"
+            btnName="Reset"
             style={{ backgroundColor: "#999999eb" }}
           />
         </FormGroup>

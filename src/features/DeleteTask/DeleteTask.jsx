@@ -5,7 +5,7 @@ const DeleteTask = ({ id, size }) => {
   const { deleteTask } = useTasksContext();
   return (
     <Button
-      name={<FaIcon type="delete" />}
+      btnIcon={<FaIcon type="delete" />}
       color="danger"
       onClick={() => deleteTask(id)}
       size={size}
