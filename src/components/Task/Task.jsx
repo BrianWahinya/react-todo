@@ -24,6 +24,20 @@ const genDateTime = (id) => {
   return `${year}-${month}-${day} ${hours}:${minutes}`;
 };
 
+const genTextWithBreaks = (txt) => {
+  const splitDesc = txt.split("\n");
+  return (
+    <>
+      {splitDesc.map((item, idx) => (
+        <>
+          {idx > 0 && <br />}
+          <span key={idx}>{item}</span>
+        </>
+      ))}
+    </>
+  );
+};
+
 const Task = ({ id, title, desc, txtcolor, bgcolor, date }) => {
   return (
     <Card
@@ -38,7 +52,9 @@ const Task = ({ id, title, desc, txtcolor, bgcolor, date }) => {
         <p className="pDate">{genDateTime(id)}</p>
       </CardHeader>
       <CardBody>
-        <CardText>{desc}</CardText>
+        <CardText>
+          {desc && desc.length > 0 && genTextWithBreaks(desc)}
+        </CardText>
       </CardBody>
       <CardFooter>
         <div className="task-controls">
