@@ -13,7 +13,6 @@ const AddTask = () => {
   const { addTask } = useTasksContext();
 
   const action = (task, reset) => {
-    console.log(task);
     addTask({ id: genRandomId(), ...task });
     reset();
   };

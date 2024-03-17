@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import {
   Card,
   CardBody,
@@ -29,10 +30,10 @@ const genTextWithBreaks = (txt) => {
   return (
     <>
       {splitDesc.map((item, idx) => (
-        <>
+        <Fragment key={idx}>
           {idx > 0 && <br />}
           <span key={idx}>{item}</span>
-        </>
+        </Fragment>
       ))}
     </>
   );
