@@ -4,3 +4,4 @@ export { default as Form } from "./Form/Form.jsx";
 export { default as Button } from "./Button/Button.jsx";
 export { default as FaIcon } from "./Icon/FaIcon.jsx";
 export { default as Navbar } from "./Navbar/Navbar.jsx";
+export { default as ConfirmPopup } from "./ConfirmPopup/ConfirmPopup.jsx";

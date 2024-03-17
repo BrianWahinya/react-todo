@@ -33,14 +33,18 @@ const Task = ({ id, title, desc, txtcolor, bgcolor, date }) => {
         color: txtcolor,
       }}
     >
-      <CardHeader>{genDateTime(id)}</CardHeader>
+      <CardHeader>
+        {genDateTime(id)}
+        <br />
+        {id}
+      </CardHeader>
       <CardBody>
         <CardTitle tag="h5">{title}</CardTitle>
         <CardText>{desc}</CardText>
       </CardBody>
       <CardFooter>
         <div className="task-controls">
-          <DeleteTask id={id} size="sm" />
+          <DeleteTask id={id} title={title} size="sm" />
           <EditTask id={id} size="sm" />
         </div>
       </CardFooter>

@@ -1,14 +1,18 @@
-import { Button, FaIcon } from "../../components";
+import { Button, ConfirmPopup, FaIcon } from "../../components";
 import { useTasksContext } from "../../context/TasksContext";
 
-const DeleteTask = ({ id, size }) => {
+const DeleteTask = ({ id, title, size }) => {
   const { deleteTask } = useTasksContext();
   return (
-    <Button
-      btnIcon={<FaIcon type="delete" />}
-      color="danger"
-      onClick={() => deleteTask(id)}
-      size={size}
+    <ConfirmPopup
+      button={{
+        id: `btnClearTasks_${id}`,
+        btnIcon: <FaIcon type="delete" className="icon-delete" />,
+        color: "danger",
+        size,
+      }}
+      title={`Delete this task: ${title}?`}
+      action={() => deleteTask(id)}
     />
   );
 };
