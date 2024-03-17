@@ -34,12 +34,10 @@ const Task = ({ id, title, desc, txtcolor, bgcolor, date }) => {
       }}
     >
       <CardHeader>
-        {genDateTime(id)}
-        <br />
-        {id}
+        <CardTitle tag="h5">{title}</CardTitle>
+        <p className="pDate">{genDateTime(id)}</p>
       </CardHeader>
       <CardBody>
-        <CardTitle tag="h5">{title}</CardTitle>
         <CardText>{desc}</CardText>
       </CardBody>
       <CardFooter>

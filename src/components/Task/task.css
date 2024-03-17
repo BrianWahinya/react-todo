@@ -3,6 +3,10 @@
   max-height: 300px;
   margin: 8px;
 }
+.task .pDate {
+  font-size: smaller;
+  margin: 0;
+}
 .task .card-body {
   max-height: 300px;
   min-height: 100px;
