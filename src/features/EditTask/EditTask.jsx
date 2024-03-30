@@ -10,7 +10,12 @@ const EditTask = ({ id, size }) => {
 
   return (
     <Modal
-      button={{ btnIcon: <FaIcon type="edit" />, color: "warning", size }}
+      button={{
+        btnIcon: <FaIcon type="edit" />,
+        color: "warning",
+        btnClass: "btn-edit",
+        size,
+      }}
       body={{
         title: "Edit Task",
         form: (

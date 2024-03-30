@@ -71,3 +71,15 @@
 .todo-btn#btnConfirm:hover .text {
   color: #f9f9f9;
 }
+.todo-btn.btn-edit {
+  background-color: rgba(255, 193, 7, 0.6588235294);
+}
+.todo-btn.btn-edit:hover {
+  background-color: rgba(255, 202, 44, 0.8705882353);
+}
+.todo-btn.btn-delete {
+  background-color: rgba(220, 53, 69, 0.6588235294);
+}
+.todo-btn.btn-delete:hover {
+  background-color: rgba(187, 45, 59, 0.8705882353);
+}

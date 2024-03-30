@@ -76,6 +76,7 @@ const Form = ({ action, initialState }) => {
             className="input-task"
             value={data.desc}
             onChange={(e) => changeValue("desc", e)}
+            rows="6"
           />
         </FormGroup>
         <FormGroup>
