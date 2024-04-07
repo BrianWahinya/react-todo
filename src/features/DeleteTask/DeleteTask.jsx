@@ -6,7 +6,7 @@ const DeleteTask = ({ id, title, size }) => {
   return (
     <ConfirmPopup
       button={{
-        id: `btnClearTasks_${id}`,
+        id: `btnDelTask_${id}`,
         btnIcon: <FaIcon type="delete" className="icon-delete" />,
         color: "danger",
         btnClass: "btn-delete",

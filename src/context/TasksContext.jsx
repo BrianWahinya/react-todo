@@ -22,6 +22,9 @@ const tasksReducer = (state, action) => {
     case "clearTasks":
       list = [];
       break;
+    case "reorderTasks":
+      list = [...action.payload];
+      break;
     default:
       list = [...state];
   }
@@ -51,9 +54,13 @@ const TasksProvider = ({ children }) => {
     dispatch({ type: "clearTasks" });
   };
 
+  const reorderTasks = (tasksReordered) => {
+    dispatch({ type: "reorderTasks", payload: tasksReordered });
+  };
+
   return (
     <TasksContext.Provider
-      value={{ tasks, addTask, editTask, deleteTask, clearTasks }}
+      value={{ tasks, addTask, editTask, deleteTask, clearTasks, reorderTasks }}
     >
       {children}
     </TasksContext.Provider>

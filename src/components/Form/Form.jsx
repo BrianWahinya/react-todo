@@ -21,7 +21,6 @@ const Form = ({ action, initialState }) => {
     }
   );
   const [error, setError] = useState(false);
-  const isFirstRender = useRef(true);
 
   const reset = () => {
     if (data.title.length < 1) {
@@ -32,6 +31,7 @@ const Form = ({ action, initialState }) => {
 
   const submit = (e) => {
     e.preventDefault();
+    e.stopPropagation();
     if (data.title.length < 1) {
       setError(true);
     }
@@ -42,6 +42,8 @@ const Form = ({ action, initialState }) => {
   };
 
   const changeValue = (id, event) => {
+    event.preventDefault();
+    event.stopPropagation();
     setError(false);
     const value = event.target.value;
     if (id === "title" && value.length < 1) {
@@ -53,7 +55,7 @@ const Form = ({ action, initialState }) => {
   return (
     <>
       <ReactForm className="todo-form">
-        <FormGroup>
+        <FormGroup autoComplete="off">
           <Label for="task-title">Enter Title: *</Label>
           <Input
             id="task-title"
@@ -63,6 +65,8 @@ const Form = ({ action, initialState }) => {
             onChange={(e) => changeValue("title", e)}
             valid={!error && data.title.length > 0}
             invalid={error}
+            autoComplete="off"
+            autoFill="off"
           />
           {error && (
             <FormFeedback invalid={error}>Title is required</FormFeedback>

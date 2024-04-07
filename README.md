@@ -9,7 +9,8 @@ Still under development:
 
 - [x] Update individual task
 - [x] Delete individual task
+- [x] Change Order by Drag and Drop
 - [ ] Search
 - [ ] List (un/ordered) in each task (Optional)
-- [ ] Background color for each task
+- [x] Background color for each task
 - [ ] Styling
