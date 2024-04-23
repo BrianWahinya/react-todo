@@ -107,7 +107,7 @@ const Form = ({ action, initialState }) => {
           <Button
             onClick={submit}
             type="submit"
-            btnName="Submit"
+            btnName="Save"
             style={{ backgroundColor: "#0077aae8" }}
           />
           <Button
