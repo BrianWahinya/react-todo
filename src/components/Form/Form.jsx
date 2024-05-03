@@ -4,7 +4,6 @@ import {
   Form as ReactForm,
   FormFeedback,
   FormGroup,
-  FormText,
   Input,
   Label,
 } from "reactstrap";
@@ -54,7 +53,71 @@ const Form = ({ action, initialState }) => {
 
   return (
     <>
-      <ReactForm className="todo-form">
+      <div className="form-card">
+        <form className="form">
+          <div className="categoryA">
+            {error && <p className="pError">Title is required</p>}
+            <div className="group">
+              <input
+                placeholder=""
+                type="text"
+                required
+                value={data.title}
+                onChange={(e) => changeValue("title", e)}
+              />
+              <label htmlFor="name">Title</label>
+            </div>
+            <div className="group">
+              <textarea
+                placeholder=""
+                id="task-desc"
+                name="desc"
+                rows="6"
+                value={data.desc}
+                onChange={(e) => changeValue("desc", e)}
+              />
+              <label htmlFor="task-desc">Description</label>
+            </div>
+          </div>
+          <div className="categoryB">
+            <div className="group">
+              <input
+                placeholder=""
+                type="color"
+                id="task-bgcolor"
+                name="bgcolor"
+                className="input-color"
+                value={data.bgcolor}
+                onChange={(e) => changeValue("bgcolor", e)}
+              />
+              <label htmlFor="task-bgcolor">Background Color</label>
+            </div>
+
+            <div className="group">
+              <input
+                placeholder=""
+                type="color"
+                id="task-txtcolor"
+                name="txtcolor"
+                className="input-color"
+                value={data.txtcolor}
+                onChange={(e) => changeValue("txtcolor", e)}
+              />
+              <label htmlFor="task-txtcolor">Text Color</label>
+            </div>
+          </div>
+
+          <div className="categoryB">
+            <button type="submit" className="btnSave" onClick={submit}>
+              Save
+            </button>
+            <button type="reset" className="btnReset" onClick={reset}>
+              Reset
+            </button>
+          </div>
+        </form>
+      </div>
+      {/* <ReactForm className="todo-form">
         <FormGroup autoComplete="off">
           <Label for="task-title">Enter Title: *</Label>
           <Input
@@ -117,7 +180,7 @@ const Form = ({ action, initialState }) => {
             style={{ backgroundColor: "#999999eb" }}
           />
         </FormGroup>
-      </ReactForm>
+      </ReactForm> */}
     </>
   );
 };

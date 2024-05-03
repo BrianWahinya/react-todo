@@ -1,0 +1,7 @@
+.modal h5 {
+  padding-left: 1.5rem;
+  font-size: 1.05rem;
+}
+.modal .modal-content {
+  background-color: rgba(254, 254, 254, 0.9411764706);
+}

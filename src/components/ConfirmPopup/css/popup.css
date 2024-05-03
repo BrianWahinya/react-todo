@@ -1,0 +1,8 @@
+.popover-body {
+  display: flex;
+}
+.popover-body button {
+  text-align: center;
+  justify-content: center;
+  flex-grow: 1;
+}

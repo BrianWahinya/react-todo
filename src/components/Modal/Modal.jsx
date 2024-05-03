@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Modal as ReactModal, ModalHeader, ModalBody } from "reactstrap";
 import Button from "../Button/Button";
+import "./css/modal.css";
 
 const Modal = ({ button, body, footer }) => {
   const [modal, setModal] = useState(false);

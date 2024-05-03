@@ -49,12 +49,12 @@ const Task = ({ id, title, desc, txtcolor, bgcolor, date }) => {
       }}
     >
       <CardHeader>
-        <CardTitle tag="h5">{title}</CardTitle>
+        <CardTitle tag="h5">{title.trim()}</CardTitle>
         <p className="pDate">{genDateTime(id)}</p>
       </CardHeader>
       <CardBody>
         <CardText>
-          {desc && desc.length > 0 && genTextWithBreaks(desc)}
+          {desc && desc.length > 0 && genTextWithBreaks(desc.trim())}
         </CardText>
       </CardBody>
       <CardFooter>

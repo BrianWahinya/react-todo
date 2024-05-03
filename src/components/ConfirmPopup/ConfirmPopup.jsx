@@ -1,5 +1,6 @@
 import Button from "../Button/Button";
 import { PopoverBody, PopoverHeader, UncontrolledPopover } from "reactstrap";
+import "./css/popup.css";
 
 const ConfirmPopup = ({ button, title, action }) => {
   return (

@@ -71,3 +71,5 @@ export const shallowObjEqual = (obj1, obj2) => {
   // If all checks pass, the objects are equal
   return true;
 };
+
+export const deepCopy = (obj) => JSON.parse(JSON.stringify(obj));

@@ -1,6 +1,11 @@
 import { createContext, useContext, useReducer } from "react";
+import { configs } from "../helpers/configs";
 
 const TasksContext = createContext();
+
+if (!localStorage.getItem("tasks")) {
+  localStorage.setItem("tasks", JSON.stringify(configs.defaultList));
+}
 
 const tasksReducer = (state, action) => {
   let list;
